@@ -176,6 +176,8 @@
     update: function() {
       var currentScrollY = this.getScrollY(),
       previousScrollY = this.lastKnownScrollY,
+      documentOffsetHeight = document.body.offsetHeight,
+      windowInnerHeight = window.innerHeight,
       scrollDifference = Math.abs(currentScrollY - previousScrollY);
 
       if(currentScrollY > this.menuOffset) {
@@ -192,7 +194,7 @@
         }
       }
 
-      if((currentScrollY + window.innerHeight) >= document.body.offsetHeight) {
+      if((currentScrollY + windowInnerHeight) >= documentOffsetHeight) {
         this.bottom();
       }
 
